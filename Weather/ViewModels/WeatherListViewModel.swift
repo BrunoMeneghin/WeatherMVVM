@@ -9,7 +9,6 @@
 import Foundation
 
 struct WeatherListViewModel {
-    
     private(set) var weatherViewModels = [WeatherViewModel]()
     
     mutating func addWeatherListViewModel(_ vm: WeatherViewModel) {
@@ -25,9 +24,7 @@ struct WeatherListViewModel {
     }
     
     mutating func updateUnit(to unit: Unit) {
-        
         switch unit {
-            
         case .celsius:
             toCelsius()
             
@@ -38,7 +35,6 @@ struct WeatherListViewModel {
     
     mutating private func toCelsius() {
         weatherViewModels = weatherViewModels.map { vm in
-            
             let weatherModel = vm
 
             weatherModel.currentTemperature.temperature.value = (weatherModel.currentTemperature.temperature.value - 32) * 5/9
@@ -50,7 +46,6 @@ struct WeatherListViewModel {
     mutating private func toFahrenheit() {
         weatherViewModels = weatherViewModels.map { vm in
             let weatherModel = vm
-           
             vm.currentTemperature.temperature.value = vm.currentTemperature.temperature.value
                  
             weatherModel.currentTemperature.temperature.value = (weatherModel.currentTemperature.temperature.value * 9/5) + 32
@@ -67,7 +62,6 @@ struct WeatherViewModel: Decodable {
     var currentTemperature: TemperatureViewModel
     
     init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = Dynamic(try container.decode(String.self, forKey: .name))
         
@@ -75,14 +69,12 @@ struct WeatherViewModel: Decodable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        
         case name
         case currentTemperature = "main"
     }
 }
 
 struct TemperatureViewModel: Decodable {
-    
     var temperature: Dynamic<Double>
     let temperatureMin: Dynamic<Double>
     let temperatureMax: Dynamic<Double>
@@ -96,7 +88,6 @@ struct TemperatureViewModel: Decodable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        
         case temperature = "temp"
         case temperatureMin = "temp_min"
         case temperatureMax = "temp_max"

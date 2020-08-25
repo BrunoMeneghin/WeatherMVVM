@@ -10,13 +10,11 @@ import Foundation
 
 
 enum Unit: String, CaseIterable {
-    
     case celsius = "metric"
     case fahrenheit = "imperial"
 }
 
 struct SettingsViewModel {
-    
     let units = Unit.allCases
     private var _selectedUnit: Unit = Unit.fahrenheit
     
@@ -39,7 +37,6 @@ struct SettingsViewModel {
 }
 
 extension Unit {
-    
     var displayName: String {
         get {
             switch (self) {

@@ -23,13 +23,11 @@ class WeatherDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupVMBindings()
     }
     
     private func setupUI() {
-        
         let gradientColor = CAGradientLayer()
         gradientColor.frame = self.view.frame
         gradientColor.colors = [UIColor.clear.cgColor, UIColor.blue.cgColor]
@@ -40,9 +38,7 @@ class WeatherDetailsViewController: UIViewController {
     }
     
     private func setupVMBindings() {
-        
         if let weatherVM = self.weatherViewModel {
-            
             weatherVM.name.bind { self.cityNameLabel.text = $0 }
             
             weatherVM.currentTemperature.temperatureMin.bind {
