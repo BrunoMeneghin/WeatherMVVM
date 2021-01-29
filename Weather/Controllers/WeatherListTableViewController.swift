@@ -11,7 +11,11 @@ import UIKit
 
 class WeatherListTableViewController: UITableViewController, AddWeatherDelegate {
     
+    // MARK:  Instances & Variables
+    
     private var weatherListViewModel = WeatherListViewModel()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +23,8 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         setupIU()
     }
     
-    private func setupIU() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.tableView.tableFooterView = UIView()
-    }
-    
+    // MARK: - TableView Data Source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -39,7 +40,7 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell",
-                                                 for: indexPath) as! WeatherCell
+                                                            for: indexPath) as! WeatherCell
         
         let weatherListVM = self.weatherListViewModel.modelCellForRowAt(indexPath.row)
         
@@ -47,6 +48,17 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if (weatherListViewModel.numberOfRows(section)) == 0 {
+            return "You don't have any Weathers"
+        }
+        
+        return ""
+    }
+    
+    // MARK: - Funcs & Actions
     
     func addWeatherDidSave(vm: WeatherViewModel) {
         self.weatherListViewModel.addWeatherListViewModel(vm)
@@ -70,13 +82,11 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if (weatherListViewModel.numberOfRows(section)) == 0 {
-            return "You don't have any Weathers"
-        }
-        
-        return ""
+    // MARK: - Private funcs
+    
+    private func setupIU() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.tableFooterView = UIView()
     }
     
     private func prepareForSegueAddWeatherCityViewController(segue: UIStoryboardSegue) {
@@ -110,11 +120,11 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         }
         
         let weatherVM = self.weatherListViewModel.modelCellForRowAt(indexPath.row)
-        
         weatherDetailsVC.weatherViewModel = weatherVM
     }
-    
 }
+
+// MARK: - Extensions
 
 extension WeatherListTableViewController: SettingsDelegate {
     func settingsDone(vm: SettingsViewModel) {

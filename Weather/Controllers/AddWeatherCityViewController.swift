@@ -15,9 +15,13 @@ protocol AddWeatherDelegate {
 
 class AddWeatherCityViewController: UIViewController, UITextFieldDelegate {
     
-    private var addCityViewModel = AddCityViewModel()
+    // MARK: Variables & Instances
     
+    var delegate: AddWeatherDelegate?
     @IBOutlet weak var AddWeatherCityButton: UIButton!
+    private lazy var addCityViewModel = AddCityViewModel()
+  
+    // MARK: - Observable Properties
     
     @IBOutlet weak var cityNameTextField: BindingTextFields! {
         didSet {
@@ -37,46 +41,60 @@ class AddWeatherCityViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    var delegate: AddWeatherDelegate?
+    // MARK: - Lifecyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    // MARK: - Private funcs
+    
     private func setupUI() {
         AddWeatherCityButton.layer.cornerRadius = 8
         cityNameTextField.becomeFirstResponder()
     }
     
-    @IBAction func saveCityButtonPressedEvent(_ sender: Any) {
-        if let city = cityNameTextField.text {
-            /// The URL below don't have the Key. Insert yours API Key after &appid= 
-            guard let weatherURL = URL(string:
-                "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=&units=metric") else {
-                
-                print(NetworkError.urlDomain.localizedDescription)
+    @IBAction private func saveCityButtonPressedEvent(_ sender: Any) {
+        if let typedCity = cityNameTextField.text {
+            guard let url = URL(string: APIURLViewModel.URL.base
+                                        + APIURLViewModel.Path.path
+                                        + typedCity
+                                        + APIURLViewModel.key
+                                        + APIURLViewModel.Path.unit) else {
                 return
             }
-            
-            let weatherResource = Resource<WeatherViewModel>(url: weatherURL) { data in
-                let weatherVM = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
-                return weatherVM
-            }
-            
-            Webservice().load(resource: weatherResource) { [weak self] result in
-                if let weatherVM = result {
-                    if let delegate = self?.delegate {
-                        delegate.addWeatherDidSave(vm: weatherVM)
-                        print(weatherVM.currentTemperature.temperature.value)
-                        self?.dismiss(animated: true, completion: nil)
-                    }
+            serviceAPIURL(url: url)
+        }
+    }
+        
+    private final func serviceAPIURL(url: URL) {
+        let weatherResource = Resource<WeatherViewModel>(url: url) { data in
+            let weatherVM = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
+            return weatherVM
+        }
+        
+        Webservice().carryingCityTemperature(resource: weatherResource) { [weak self] result in
+            switch result {
+            case .success(let resource):
+                guard let weatherVM = resource,
+                      let delegate = self?.delegate else { return }
+                
+                DispatchQueue.main.async { [weak self] in
+                    delegate.addWeatherDidSave(vm: weatherVM)
+                    self?.dismiss(animated: true, completion: nil)
                 }
+                
+            case .failure(let error):
+                #if DEBUG
+                print(error.identifier)
+                #endif
             }
         }
     }
     
-    @IBAction func closeChooseCityName(_ sender: Any) {
+    @IBAction private func closeChooseCityName(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
+

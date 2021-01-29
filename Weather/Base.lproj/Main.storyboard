@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A2a-w4-byW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A2a-w4-byW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZAX-Vo-hdb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" id="KCm-jc-gMQ">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -49,7 +51,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="laW-9V-rJp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" id="oEV-aP-MdP" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -61,11 +63,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJt-ia-8Di">
                                             <rect key="frame" x="323" y="32" width="71" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemTealColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZV-k1-oya">
-                                            <rect key="frame" x="20" y="40" width="42" height="20.5"/>
+                                            <rect key="frame" x="20" y="40" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -136,25 +138,38 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter city" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRq-Fc-hRS" customClass="BindingTextFields" customModule="Weather" customModuleProvider="target">
                                 <rect key="frame" x="20" y="75" width="374" height="41"/>
-                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="7cV-ko-2KE"/>
+                                    <constraint firstAttribute="height" constant="41" id="Fsz-ea-l7M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="address-level2"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter state" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XER-vb-iPq" customClass="BindingTextFields" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="20" y="124" width="374" height="41"/>
-                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="20" y="137" width="374" height="41"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="Ggq-uk-KJ2"/>
+                                    <constraint firstAttribute="height" constant="41" id="W2l-Fc-LK3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="address-level1"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-fK-Y6Y">
-                                <rect key="frame" x="20" y="230" width="374" height="46"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter zipcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BJc-SL-zyz" customClass="BindingTextFields" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="20" y="186" width="374" height="41"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="nyN-lq-65I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-fK-Y6Y">
+                                <rect key="frame" x="120" y="397.5" width="174" height="47"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="M7d-pU-aJf"/>
+                                    <constraint firstAttribute="height" constant="47" id="tdS-Sk-n4v"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,33 +178,22 @@
                                     <action selector="saveCityButtonPressedEvent:" destination="4HU-O2-Ebn" eventType="touchUpInside" id="kSs-ja-wwp"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter zipcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BJc-SL-zyz" customClass="BindingTextFields" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="20" y="173" width="374" height="41"/>
-                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="h7E-nb-Idf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
-                            </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="BJc-SL-zyz" firstAttribute="top" secondItem="XER-vb-iPq" secondAttribute="bottom" constant="8" id="29f-24-8lM"/>
-                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="trailing" secondItem="KDv-H1-oga" secondAttribute="trailingMargin" id="C2t-jL-zkt"/>
-                            <constraint firstItem="AW4-eR-tFi" firstAttribute="bottom" secondItem="l7d-fK-Y6Y" secondAttribute="bottom" constant="532" id="CoQ-98-ngT"/>
-                            <constraint firstItem="XER-vb-iPq" firstAttribute="trailing" secondItem="BJc-SL-zyz" secondAttribute="trailing" id="IEo-oL-DKb"/>
-                            <constraint firstItem="XER-vb-iPq" firstAttribute="leading" secondItem="BJc-SL-zyz" secondAttribute="leading" id="KyI-qC-Do2"/>
-                            <constraint firstItem="BJc-SL-zyz" firstAttribute="trailing" secondItem="l7d-fK-Y6Y" secondAttribute="trailing" id="Mq5-nF-Hbp"/>
-                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="trailing" secondItem="XER-vb-iPq" secondAttribute="trailing" id="a2o-Ry-20d"/>
-                            <constraint firstItem="XER-vb-iPq" firstAttribute="top" secondItem="pRq-Fc-hRS" secondAttribute="bottom" constant="8" id="d6S-bj-Rza"/>
-                            <constraint firstItem="BJc-SL-zyz" firstAttribute="leading" secondItem="l7d-fK-Y6Y" secondAttribute="leading" id="h8H-bp-A71"/>
-                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="leading" secondItem="KDv-H1-oga" secondAttribute="leadingMargin" id="l3d-Ck-bCo"/>
-                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="top" secondItem="AW4-eR-tFi" secondAttribute="top" constant="19" id="wXo-A2-kNB"/>
-                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="leading" secondItem="XER-vb-iPq" secondAttribute="leading" id="wdz-Na-eXL"/>
-                            <constraint firstItem="l7d-fK-Y6Y" firstAttribute="top" secondItem="BJc-SL-zyz" secondAttribute="bottom" constant="16" id="z3R-ZZ-YgQ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AW4-eR-tFi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="leading" secondItem="KDv-H1-oga" secondAttribute="leadingMargin" id="4hS-x9-53R"/>
+                            <constraint firstItem="XER-vb-iPq" firstAttribute="top" secondItem="pRq-Fc-hRS" secondAttribute="bottom" constant="21" id="5h7-iI-ad4"/>
+                            <constraint firstItem="l7d-fK-Y6Y" firstAttribute="centerY" secondItem="KDv-H1-oga" secondAttribute="centerY" id="Ilq-5d-OfW"/>
+                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="leading" secondItem="XER-vb-iPq" secondAttribute="leading" id="MV6-Em-jqb"/>
+                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="top" secondItem="AW4-eR-tFi" secondAttribute="top" constant="19" id="NC0-kZ-hXs"/>
+                            <constraint firstItem="l7d-fK-Y6Y" firstAttribute="centerX" secondItem="KDv-H1-oga" secondAttribute="centerX" id="PDO-MQ-maV"/>
+                            <constraint firstItem="BJc-SL-zyz" firstAttribute="top" secondItem="XER-vb-iPq" secondAttribute="bottom" constant="8" id="Y3z-26-wCz"/>
+                            <constraint firstItem="XER-vb-iPq" firstAttribute="leading" secondItem="BJc-SL-zyz" secondAttribute="leading" id="iLB-7v-eh6"/>
+                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="trailing" secondItem="XER-vb-iPq" secondAttribute="trailing" id="ij3-nS-B06"/>
+                            <constraint firstItem="pRq-Fc-hRS" firstAttribute="trailing" secondItem="KDv-H1-oga" secondAttribute="trailingMargin" id="js1-2w-DiK"/>
+                            <constraint firstItem="XER-vb-iPq" firstAttribute="trailing" secondItem="BJc-SL-zyz" secondAttribute="trailing" id="zW0-LY-0EU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose the City" id="Dlf-jO-QMi">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="wbp-SD-g7U">
@@ -255,33 +259,33 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcE-kh-Ypz">
                                                 <rect key="frame" x="0.0" y="81" width="79.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-jL-9g5">
                                                 <rect key="frame" x="0.0" y="114.5" width="79.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="systemBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="rqH-ov-cm4" firstAttribute="centerY" secondItem="rKU-Qv-AMZ" secondAttribute="centerY" id="0eZ-jN-PoP"/>
                                     <constraint firstItem="rqH-ov-cm4" firstAttribute="centerX" secondItem="rKU-Qv-AMZ" secondAttribute="centerX" id="ULV-X1-dJj"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nW5-yH-zAa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rKU-Qv-AMZ" firstAttribute="top" secondItem="yMG-Lf-YUW" secondAttribute="topMargin" constant="-8" id="Ejf-wD-3fB"/>
                             <constraint firstItem="nW5-yH-zAa" firstAttribute="bottom" secondItem="rKU-Qv-AMZ" secondAttribute="bottom" constant="442" id="IET-Sa-zg0"/>
                             <constraint firstItem="rKU-Qv-AMZ" firstAttribute="leading" secondItem="yMG-Lf-YUW" secondAttribute="leadingMargin" id="jU1-5p-WFx"/>
                             <constraint firstItem="rKU-Qv-AMZ" firstAttribute="trailing" secondItem="yMG-Lf-YUW" secondAttribute="trailingMargin" id="ljd-FQ-GO3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="nW5-yH-zAa"/>
                     </view>
                     <navigationItem key="navigationItem" id="FQr-w0-OEp"/>
                     <connections>
@@ -317,5 +321,23 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

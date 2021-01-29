@@ -10,33 +10,39 @@ import Foundation
 import UIKit
 
 protocol SettingsDelegate {
-    
-    func settingsDone(vm: SettingsViewModel);
+    func settingsDone(vm: SettingsViewModel)
 }
 
 class SettingsTableViewController: UITableViewController {
     
+    // MARK: Instances & Variables
+    
     private var settingsViewModel = SettingsViewModel()
     var delegate: SettingsDelegate?
     
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    // MARK: - Private funcs
+    
     private func setupUI() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.tableFooterView = UIView()
     }
     
-    @IBAction func done(_ sender: Any) {
+    @IBAction private func done(_ sender: Any) {
         if let delegate = self.delegate {
             delegate.settingsDone(vm: self.settingsViewModel)
         }
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - TableView Data Source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
@@ -77,5 +83,4 @@ class SettingsTableViewController: UITableViewController {
         
         return cell
     }
-    
 }
