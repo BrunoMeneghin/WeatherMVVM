@@ -74,7 +74,7 @@ class AddWeatherCityViewController: UIViewController, UITextFieldDelegate {
             return weatherVM
         }
         
-        Webservice().carryingCityTemperature(resource: weatherResource) { [weak self] result in
+        Webservice().serviceRequest(resource: weatherResource) { [weak self] result in
             switch result {
             case .success(let resource):
                 guard let weatherVM = resource,

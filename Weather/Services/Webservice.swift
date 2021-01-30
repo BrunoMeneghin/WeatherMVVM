@@ -14,7 +14,7 @@ struct Resource<T> {
 }
 
 final class Webservice {
-    func carryingCityTemperature<T>(resource: Resource<T>, completion: @escaping (Result<T?, HTTPClient>) -> Void) {
+    func serviceRequest<T>(resource: Resource<T>, completion: @escaping (Result<T?, HTTPClient>) -> Void) {
         URLSession.shared.dataTask(with: resource.url) { data, response, error in
             guard error == nil,
                   let data = data,
